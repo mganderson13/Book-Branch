@@ -11,6 +11,9 @@ function Navbar() {
         <li>
           <Link to="/browse">Browse Books</Link>
         </li>
+        <li>
+        <Link to="/search">Search</Link>
+      </li>
         </ul>
       </menu>
     </div>
