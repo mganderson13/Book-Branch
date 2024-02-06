@@ -14,7 +14,7 @@ router.post('/register', async (req, res, next) => {
 
         //Check if username and password were provided
         if (!username || !password) {
-            throw new ServerError(400, "Username and password required.")''
+            throw new ServerError(400, "Username and password required.");
         }
 
         //Check if account already exists
@@ -37,7 +37,7 @@ router.post('/register', async (req, res, next) => {
      });
 
 // route to sign in - Returns token for account if credentials valid
-router.post("/login", async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
     try {
       const { username, password } = req.body;
   
