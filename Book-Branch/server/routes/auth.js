@@ -59,12 +59,12 @@ router.post("/login", async (req, res, next) => {
       if (!passwordValid) {
         throw new ServerError(401, "Invalid password.");
       }
-      //sign in 
+      //sign in and generate jwt 
       const token = jwt.sign({ id: user.id });
       res.json({ token });
     } catch (err) {
       next(err);
     }
   });
-  
+
 module.exports = router; 
