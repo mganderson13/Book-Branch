@@ -7,7 +7,7 @@ router.get("/", async (req, res, next) => {
     try {
       // Declare and verify payload from AUTHORIZATION HEADER
       const payload = jwt.verify(req.headers.authorization, process.env.JWT);
-      const mybooks = await prisma.books.findUnique({
+      const mybooks = await prisma.book.findUnique({
         where: {
           id: payload.id,
         },
@@ -21,3 +21,4 @@ router.get("/", async (req, res, next) => {
     }
   });
   
+  module.exports = router; 

@@ -14,6 +14,9 @@ function Navbar() {
         <li>
         <Link to="/search">Search</Link>
       </li>
+      <li>
+        <Link to="/register">Register</Link>
+      </li>
         </ul>
       </menu>
     </div>

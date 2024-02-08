@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { ServerError } = require('../errors');
-//Need to import bcrypt: const bcrypt = require('bcrypt');
-// Need to import prisma: const prisma = require('prismaPathHere')
-// Need to install and import jwt: const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
+const prisma = require('../prisma');
+const jwt = require('jsonwebtoken');
 
 //Routes
 
@@ -26,11 +26,12 @@ router.post('/register', async (req, res, next) => {
         }
 
         //Create new user
+        //Hashing takes place in prisma/index.js
         const newUser = await prisma.user.create({
             data: { username, password },
         });
-        const token = jwt.sign({ id: newUser.id });
-        res.json({ token });
+        // const token = jwt.sign({ id: newUser.id });
+        // res.json({ token });
     }catch (err) {
         next(err);
         }
@@ -56,12 +57,15 @@ router.post('/login', async (req, res, next) => {
   
       // Check if password is correct
       const passwordValid = await bcrypt.compare(password, user.password);
-      if (!passwordValid) {
-        throw new ServerError(401, "Invalid password.");
-      }
-      //sign in and generate jwt 
-      const token = jwt.sign({ id: user.id });
-      res.json({ token });
+      const accessToken = jwt.sign(JSON.stringify(user), process.env.JWT)
+        if(passwordValid){
+            res.json({ accessToken: accessToken });
+        } else {
+            throw new ServerError(401, "Invalid password.");
+        }
+
+    //   const token = jwt.sign({ id: user.id });
+    //   res.json({ token });
     } catch (err) {
       next(err);
     }
