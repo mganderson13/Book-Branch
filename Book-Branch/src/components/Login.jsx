@@ -39,7 +39,6 @@ const Login = () => {
             //clear state and controlled inputs
             setUsername('');
             setPassword('');
-            setMatchPwd('');
         } catch (err) {
             console.error(err);
         }
