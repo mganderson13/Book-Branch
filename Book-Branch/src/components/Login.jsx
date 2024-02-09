@@ -21,7 +21,6 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
             const response = await fetch("http://localhost:3000/auth/login", {
               method: 'POST',
@@ -35,6 +34,7 @@ const Login = () => {
             console.log(response?.accessToken);
             console.log(JSON.stringify(response))
             setSuccess(true);
+            window.localStorage.setItem("isLoggedIn", true);
             
             //clear state and controlled inputs
             setUsername('');

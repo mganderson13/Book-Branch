@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+// log out function
+const Logout = () => {
+  window.localStorage.removeItem("isLoggedIn");
+}
+
 function Navbar() {
     return (
     <div>
@@ -19,6 +24,9 @@ function Navbar() {
       </li>
       <li>
         <Link to="/register">Register</Link>
+      </li>
+      <li>
+        <button onClick={() => Logout()}>Log out</button>
       </li>
         </ul>
       </menu>
