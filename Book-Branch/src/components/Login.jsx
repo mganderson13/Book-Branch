@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
-    const userRef = useRef();
+    // const userRef = useRef();
     const errRef = useRef();
 
     const [username, setUsername] = useState('');
@@ -11,9 +11,9 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
+    // useEffect(() => {
+    //     userRef.current.focus();
+    // }, [])
 
     useEffect(() => {
         setErrMsg('');
@@ -30,12 +30,11 @@ const Login = () => {
             })
               .then(response => response.json());
 
-            console.log(response?.data);
             console.log(response?.accessToken);
-            console.log(JSON.stringify(response))
+
             setSuccess(true);
             window.localStorage.setItem("isLoggedIn", true);
-            
+
             //clear state and controlled inputs
             setUsername('');
             setPassword('');
@@ -46,7 +45,7 @@ const Login = () => {
 
     return (
         <>
-            {success ? (
+            {window.localStorage.getItem("isLoggedIn") ? (
                 <section>
                     <h1>You are logged in!</h1>
                     <br />
@@ -63,7 +62,7 @@ const Login = () => {
                         <input
                             type="text"
                             id="username"
-                            ref={userRef}
+                            // ref={userRef}
                             autoComplete="off"
                             onChange={(e) => setUsername(e.target.value)}
                             value={username}
