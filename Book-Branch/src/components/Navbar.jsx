@@ -1,36 +1,33 @@
-import { Link } from "react-router-dom";
-
-// log out function
-const Logout = () => {
-  window.localStorage.removeItem("isLoggedIn");
-}
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate();
+  // log out function
+const Logout = () => {
+  window.localStorage.removeItem("isLoggedIn");
+  navigate("/login");
+}
     return (
-    <div>
-      <menu>
-        <ul>
-        <li>
+    <section className="navBar">
+        <div>
           <Link to="/">Home</Link>
-        </li>
-        <li>
+        </div>
+        <div>
           <Link to="/browse">Browse Books</Link>
-        </li>
-        <li>
+        </div>
+        <div>
         <Link to="/search">Search</Link>
-      </li>
-      <li>
+      </div>
+      <div>
         <Link to="/login">Sign in</Link>
-      </li>
-      <li>
+      </div>
+        <div>
         <Link to="/register">Register</Link>
-      </li>
-      <li>
-        <button onClick={() => Logout()}>Log out</button>
-      </li>
-        </ul>
-      </menu>
-    </div>
+      </div>
+        <div>
+        <button className="logoutButton" onClick={Logout}>Log out</button>
+      </div>
+    </section>
     )
 }
 

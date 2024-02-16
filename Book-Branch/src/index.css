@@ -3,9 +3,21 @@
   line-height: 1.5;
   font-weight: 400;
 
+  max-width: 1280px;
+  margin: 100 auto;
+  padding: 2rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  padding: 1rem 0.5rem;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0d2901;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,7 +35,7 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 10;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -42,27 +54,31 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #014a39;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #035441;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  height: 50px;
+  background-color: green;
+}
+
+.logoutButton {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer; 
 }

@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import "./register.css";
 
 const Login = () => {
     // const userRef = useRef();
@@ -46,7 +46,7 @@ const Login = () => {
     return (
         <>
             {window.localStorage.getItem("isLoggedIn") ? (
-                <section>
+                <section className='formSection'>
                     <h1>You are logged in!</h1>
                     <br />
                     <p>
@@ -54,7 +54,7 @@ const Login = () => {
                     </p>
                 </section>
             ) : (
-                <section>
+                <section className='formSection'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} >{errMsg}</p>
                     <h1>Sign In</h1>
                     <form onSubmit={handleSubmit}>
