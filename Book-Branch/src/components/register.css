@@ -6,15 +6,25 @@ html {
     color: #fff;
 }
 
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .formSection {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     min-height: 400px;
+    justify-self: center;
+    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin: 20px;
     padding: 1rem;
     background-color: rgba(0,0,0,0.4);
+    border-radius: 5%;
 }
 
 form {
@@ -23,6 +33,11 @@ form {
     justify-content: space-evenly;
     flex-grow: 1;
     padding-bottom: 1rem;
+}
+
+#signIn {
+    height: 20px;
+    margin-top: 10px;
 }
 
 a, a:visited {

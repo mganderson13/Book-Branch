@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import BookCard from './BookCard';
+import "./bookCard.css";
+import "../index.css";
 
 function BrowseBooks() {
     return (
-        <div>
-          <h1>Browse Books</h1>
+        <div className='browseContainer'>
+          <h1 className='browseContainerText'>Browse Books</h1>
+          <p className='browseContainerText'>Take a look through book by genre. See something you like? Click on it for more information and to save it to your account!</p>
           <ul className="bookCategories">
             <li>
                 <HistoryBooks />
@@ -45,8 +48,8 @@ function HistoryBooks() {
     return (
         <div>
           <h3>History Books</h3>
-          <ul>
-            {books.map(book => (
+          <ul className='bookLists'>
+          {books.map(book => (
               <BookCard key={book.id} book={book} />
             ))}
           </ul>
@@ -73,7 +76,7 @@ function FantasyBooks() {
     return (
         <div>
           <h3>Fantasy Books</h3>
-          <ul>
+          <ul className='bookLists'>
             {books.map(book => (
               <BookCard key={book.id} book={book} />
             ))}
@@ -101,7 +104,7 @@ function MysteryBooks() {
     return (
         <div>
           <h3>Mystery Books</h3>
-          <ul>
+          <ul className='bookLists'>
             {books.map(book => (
               <BookCard key={book.id} book={book} />
             ))}
@@ -129,7 +132,7 @@ function ScienceBooks() {
     return (
         <div>
           <h3>Science Books</h3>
-          <ul>
+          <ul className='bookLists'>
             {books.map(book => (
               <BookCard key={book.id} book={book} />
             ))}
@@ -157,7 +160,7 @@ function RomanceBooks() {
     return (
         <div>
           <h3>Romance Books</h3>
-          <ul>
+          <ul className='bookLists'>
             {books.map(book => (
               <BookCard key={book.id} book={book} />
             ))}

@@ -45,6 +45,7 @@ const Login = () => {
 
     return (
         <>
+        <section className='authContainer'>
             {window.localStorage.getItem("isLoggedIn") ? (
                 <section className='formSection'>
                     <h1>You are logged in!</h1>
@@ -56,7 +57,7 @@ const Login = () => {
             ) : (
                 <section className='formSection'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} >{errMsg}</p>
-                    <h1>Sign In</h1>
+                    <h1 id='signIn'>Sign In</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">Username:</label>
                         <input
@@ -87,6 +88,7 @@ const Login = () => {
                     </p>
                 </section>
             )}
+            </section>
         </>
     )
 }

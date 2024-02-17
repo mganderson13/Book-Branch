@@ -9,22 +9,22 @@ const Logout = () => {
 }
     return (
     <section className="navBar">
-        <div>
+        <div className="navLink">
           <Link to="/">Home</Link>
         </div>
-        <div>
+        <div className="navLink">
           <Link to="/browse">Browse Books</Link>
         </div>
-        <div>
+        <div className="navLink">
         <Link to="/search">Search</Link>
       </div>
-      <div>
+      <div className="navLink">
         <Link to="/login">Sign in</Link>
       </div>
-        <div>
+        <div className="navLink">
         <Link to="/register">Register</Link>
       </div>
-        <div>
+        <div className="navLink">
         <button className="logoutButton" onClick={Logout}>Log out</button>
       </div>
     </section>

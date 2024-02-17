@@ -1,0 +1,29 @@
+
+.bookCard {
+    width: 250px;
+    background-color: rgb(214, 212, 212);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(214, 212, 212);
+    font-size: small;
+}
+
+.bookCard img {
+    width: 125px;
+}
+
+.cardText {
+    color: #014a39;
+    margin: 2px;
+}
+
+#readLink {
+    text-decoration: underline;
+}
+
+.bookLists {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 24%;
+    overflow-x: scroll;
+}

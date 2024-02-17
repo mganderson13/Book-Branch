@@ -79,6 +79,7 @@ const Register = () => {
 
     return (
         <>
+        <section className="authContainer">
             {success ? (
                 <section className="formSection">
                     <h1>Success!</h1>
@@ -89,7 +90,7 @@ const Register = () => {
             ) : (
                 <section className="formSection">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} >{errMsg}</p>
-                    <h1>Register</h1>
+                    <h1 id="signIn">Register</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">
                             Username:
@@ -166,6 +167,7 @@ const Register = () => {
                     </p>
                 </section>
             )}
+            </section>
         </>
     )
 }
