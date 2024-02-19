@@ -18,12 +18,30 @@ function BookDetails() {
     fetchData();
   }, [id]);
 
+  const myBookTitle = book.volumeInfo.title;
+  const myBookAuthor = book.volumeInfo.authors;
+
+  const addToMyBooks = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/myBooks", { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ myBookTitle, myBookAuthor }),
+      })
+      .then(response => response.json());
+  
+    }catch(err) {
+      console.error(err);
+    }
+  }
+
     return (
         <div>
           <h2>Book Details</h2>
           {book.volumeInfo ? (
             <>
-            <h3>Add book to my collection</h3>
+            <button onClick={addToMyBooks}>Add book to my collection</button>
                 {book.volumeInfo.imageLinks ? (
             <img src={book.volumeInfo.imageLinks.smallThumbnail} alt={book.volumeInfo.title} />
           ) : (
