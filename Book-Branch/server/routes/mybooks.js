@@ -20,5 +20,29 @@ router.get("/", async (req, res, next) => {
       next(err);
     }
   });
+
+  router.post("/", async (req, res, next) => {
+    try {
+      // Declare and verify payload from AUTHORIZATION HEADER
+      const payload = jwt.verify(req.headers.authorization, process.env.JWT);
+      //Save book to user's account 
+      const { title, author, rating, review, completed, userId } = req.body;
+
+      const myBook = await prisma.book.create({
+        data: {
+          title,
+          author,
+          rating,
+          review,
+          completed, 
+          userId,
+        },
+      });
+      res.json(myBook);
+
+    }catch (err) {
+      next(err);
+    }
+  });
   
   module.exports = router; 
