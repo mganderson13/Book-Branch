@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+
 function BookDetails() {
     const { id } = useParams();
     const [book, setBook] = useState({});
@@ -18,16 +19,13 @@ function BookDetails() {
     fetchData();
   }, [id]);
 
-  const myBookTitle = book.volumeInfo.title;
-  const myBookAuthor = book.volumeInfo.authors;
-
   const addToMyBooks = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:3000/myBooks", { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ myBookTitle, myBookAuthor }),
+        body: JSON.stringify({ title: book.volumeInfo.title, author: book.volumeInfo.authors }),
       })
       .then(response => response.json());
   
@@ -56,7 +54,7 @@ function BookDetails() {
           )}
                 <p>Page count: {book.volumeInfo.pageCount}</p>
                 <p>Genres: {book.volumeInfo.categories}</p>
-                <p>Read this book: <a href={book.volumeInfo.previewLink} target="_blank">Link</a></p>
+                <p className="cardText" id="readLink"><a href={book.volumeInfo.previewLink} target="_blank" className="cardText">Read this book</a></p>
           </>
         ) : (
             <div>Loading...</div>
