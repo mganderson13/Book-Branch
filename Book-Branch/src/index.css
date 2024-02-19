@@ -131,3 +131,9 @@ button:focus-visible {
   justify-content: space-around;
   align-items: center;
   }
+
+  /* Book Details page */
+
+  .addToMyBooksButton {
+    width: 290px;
+  }

@@ -39,12 +39,13 @@ function BookDetails() {
           <h2>Book Details</h2>
           {book.volumeInfo ? (
             <>
-            <button onClick={addToMyBooks}>Add book to my collection</button>
                 {book.volumeInfo.imageLinks ? (
             <img src={book.volumeInfo.imageLinks.smallThumbnail} alt={book.volumeInfo.title} />
           ) : (
             <div>No Image Available</div>
           )}
+          <br></br>
+          <button className='addToMyBooksButton' onClick={addToMyBooks}>Add book to my collection</button>
                  <h3>Title: {book.volumeInfo.title}</h3>
                  <h3>Author: {book.volumeInfo.authors}</h3>
                  {book.volumeInfo.description ? (
