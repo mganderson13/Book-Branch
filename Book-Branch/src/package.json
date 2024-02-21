@@ -3,11 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  
+  "engines": {
+    "node": ">=18.16.0"
+},
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "prisma migrate deploy && prisma db seed"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
