@@ -1,4 +1,4 @@
-import app from "../dist/public/server";
+import app from "../dist/public/server.js";
 import serverless from "serverless-http";
 
 
