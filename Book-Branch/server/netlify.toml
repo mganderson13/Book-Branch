@@ -9,5 +9,6 @@
   to = "/.netlify/functions/api/:splat"
 
   [build]
-  command = "echo 'Building Functions'"
-  publish = "public"
+  functions = "functions/"
+  command = "npm run build"
+  publish = "dist/"
