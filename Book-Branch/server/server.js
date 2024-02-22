@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 });
 
 //Route files 
-const authRoutes = require('./dist/public/routes/auth.js');
-const mybooksRoutes = require('./dist/public/routes/mybooks.js');
+const authRoutes = require('./routes/auth.js');
+const mybooksRoutes = require('./routes/mybooks.js');
 
 //Use routes
 app.use('/auth', authRoutes);
