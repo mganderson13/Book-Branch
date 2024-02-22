@@ -10,4 +10,4 @@
 
   [build]
   functions = "functions/"
-  publish = "dist/"
+  publish = "dist"
