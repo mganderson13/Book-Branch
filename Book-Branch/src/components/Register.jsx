@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./register.css";
 import { Link } from "react-router-dom";
 
-const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_API_URL_DEV : process.env.REACT_APP_API_URL_PROD;
+//const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_API_URL_DEV : process.env.REACT_APP_API_URL_PROD;
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -55,7 +55,7 @@ const Register = () => {
             return;
         }
         try {
-            const response = await fetch(`${apiUrl}/auth/register`, {
+            const response = await fetch(`https://bookbranchapi2-6dd80f6091d1.herokuapp.com/auth/register`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
