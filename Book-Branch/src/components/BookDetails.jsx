@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_API_URL_DEV : process.env.REACT_APP_API_URL_PROD;
 
 function BookDetails() {
     const { id } = useParams();
@@ -22,7 +23,7 @@ function BookDetails() {
   const addToMyBooks = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/myBooks", { 
+      const response = await fetch(`${apiUrl}/myBooks`, { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: book.volumeInfo.title, author: book.volumeInfo.authors }),

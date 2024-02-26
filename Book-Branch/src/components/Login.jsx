@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./register.css";
 
+const apiUrl = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_API_URL_DEV : process.env.REACT_APP_API_URL_PROD;
+
 const Login = () => {
     // const userRef = useRef();
     const errRef = useRef();
@@ -22,7 +24,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/auth/login", {
+            const response = await fetch(`${apiUrl}/auth/login`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               credentials: 'include',
