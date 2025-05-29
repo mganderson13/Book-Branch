@@ -56,7 +56,7 @@ function BookDetails() {
           )}
                 <p>Page count: {book.volumeInfo.pageCount}</p>
                 <p>Genres: {book.volumeInfo.categories}</p>
-                <p className="cardText" id="readLink"><a href={book.volumeInfo.previewLink} target="_blank" className="cardText">Read this book</a></p>
+                <p className="cardText" id="readLink"><a href={book.volumeInfo.previewLink} target="_blank" rel="noreferrer">Read this book</a></p>
           </>
         ) : (
             <div>Loading...</div>
